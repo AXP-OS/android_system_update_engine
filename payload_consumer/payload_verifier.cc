@@ -225,7 +225,7 @@ bool PayloadVerifier::GetRawHashFromSignature(
 
 bool PayloadVerifier::PadRSASHA256Hash(brillo::Blob* hash, size_t rsa_size) {
   TEST_AND_RETURN_FALSE(hash->size() == kSHA256Size);
-  TEST_AND_RETURN_FALSE(rsa_size == 256 || rsa_size == 512);
+  TEST_AND_RETURN_FALSE(rsa_size == 256 || rsa_size == 512 || rsa_size == 1024);
 
   // The following is a standard PKCS1-v1_5 padding for SHA256 signatures, as
   // defined in RFC3447 section 9.2. It is prepended to the actual signature
